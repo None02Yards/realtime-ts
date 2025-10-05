@@ -1,0 +1,111 @@
+/* src/styles/_mixins.scss */
+@use "sass:map";
+@use "sass:math";
+
+/* ---------- breakpoints ---------- */
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+/* ---------- media helpers ---------- */
+@mixin respond-above($bp) {
+  @if map.has-key($breakpoints, $bp) {
+    @media (min-width: map.get($breakpoints, $bp)) { @content; }
+  } @else { @warn 'Invalid breakpoint: #{$bp}'; }
+}
+
+@mixin respond-below($bp) {
+  @if map.has-key($breakpoints, $bp) {
+    $v: map.get($breakpoints, $bp) - 0.02px; // e.g. 991.98px
+    @media (max-width: $v) { @content; }
+  } @else { @warn 'Invalid breakpoint: #{$bp}'; }
+}
+
+@mixin respond-between($min, $max) {
+  @if map.has-key($breakpoints, $min) and map.has-key($breakpoints, $max) {
+    $lo: map.get($breakpoints, $min);
+    $hi: map.get($breakpoints, $max) - 0.02px;
+    @media (min-width: $lo) and (max-width: $hi) { @content; }
+  } @else { @warn 'Invalid breakpoint range: #{$min}–#{$max}'; }
+}
+
+/* ---------- motion & transform ---------- */
+@mixin transition($values...) {
+  -webkit-transition: $values;
+  transition: $values;
+}
+
+@mixin transform($val) {
+  -webkit-transform: $val;
+  transform: $val;
+}
+
+@mixin transform-origin($val) {
+  -webkit-transform-origin: $val;
+  transform-origin: $val;
+}
+
+/* ---------- sizing & layout ---------- */
+@mixin rounded($r) { border-radius: $r; }
+@mixin size($w, $h: $w) { width: $w; height: $h; }
+
+@mixin center-abs {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ---------- form/placeholder ---------- */
+@mixin placeholder-color($color) {
+  &::placeholder { color: $color; opacity: 1; }
+  &::-webkit-input-placeholder { color: $color; opacity: 1; }
+  &:-ms-input-placeholder { color: $color; opacity: 1; }
+  &::-ms-input-placeholder { color: $color; opacity: 1; }
+}
+
+/* ---------- effects ---------- */
+@mixin elevation($y: 10px, $blur: 26px, $spread: 0, $color: rgba(2, 6, 23, .08)) {
+  box-shadow: 0 $y $blur $spread $color;
+}
+
+@mixin focus-ring($color: #6366f1, $width: 3px, $alpha: .25) {
+  outline: none;
+  box-shadow: 0 0 0 $width rgba($color, $alpha);
+}
+
+@mixin ring($color, $size: 2px, $inset: false) {
+  box-shadow: if($inset, inset, null) 0 0 0 $size $color;
+}
+
+/* thin, pretty scrollbars (FF + WebKit) */
+@mixin thin-scrollbar($thumb: rgba(2,6,23,.24), $track: transparent) {
+  scrollbar-width: thin;              /* Firefox */
+  scrollbar-color: $thumb $track;
+  &::-webkit-scrollbar { width: 8px; height: 8px; }
+  &::-webkit-scrollbar-thumb { background: $thumb; border-radius: 8px; }
+  &::-webkit-scrollbar-track { background: $track; }
+}
+
+@mixin hide-scrollbar {
+  -ms-overflow-style: none;           /* IE/Edge */
+  scrollbar-width: none;              /* Firefox */
+  &::-webkit-scrollbar { display: none; } /* WebKit */
+}
+
+/* multiline clamp */
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---------- utility placeholder ---------- */
+%animation-effect {
+  transition: all .2s ease;
+  will-change: transform, box-shadow;
+}

@@ -1,57 +1,3 @@
-<!-- 
-
-<nav class="navbar mt-5 navbar--overlay" role="navigation" aria-label="Primary">
-  <div class="wrap">
-    <a class="brand" routerLink="/">
-      <img src="/assets/images/cloud-message.svg" alt="!chatty" class="brand-logo" width="112" height="28"  />
-      <span class="logo brand-name">!chatty</span>
-    </a>
-
-    <div class="nav-right">
-      <div class="nav-items">
-        <ul class="links" aria-label="Main">
-          <li><a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">Home</a></li>
-          <li><a routerLink="/community" routerLinkActive="active">Community</a></li>
-          <li><a routerLink="/expertise" routerLinkActive="active">Expertise</a></li>
-          <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="nav-cta">
-        <a class="btn cta" routerLink="/buy">Connect</a>
-      </div>
-
-      <div class="nav-burger">
-        <button
-          class="hamburger"
-          type="button"
-          aria-label="Toggle menu"
-          [attr.aria-expanded]="isOpen()"
-          aria-controls="nav-drawer"
-          (click)="toggleMenu()">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div id="nav-drawer" class="drawer" [class.open]="isOpen()" (click)="closeMenu()">
-    <div class="sheet" (click)="$event.stopPropagation()">
-      <ul class="m-links" aria-label="Mobile menu">
-        <li><a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">Home</a></li>
-        <li><a routerLink="/community" routerLinkActive="active">Community</a></li>
-        <li><a routerLink="/expertise" routerLinkActive="active">Expertise</a></li>
-        <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
-      </ul>
-      <div class="m-cta">
-        <a class="btn cta block" routerLink="/buy">Buy Now</a>
-      </div>
-    </div>
-  </div>
-</nav> -->
-
 
 <!-- Hide the whole element when mode === 'none' -->
 <nav *ngIf="showBar()"
@@ -61,13 +7,11 @@
      role="navigation"
      aria-label="Primary">
   <div class="wrap">
-    <!-- Brand always visible -->
     <a class="brand" routerLink="/">
       <img src="/assets/images/cloud-message.svg" alt="!chatty" class="brand-logo" width="112" height="28" />
       <span class=" logo brand-name">!chatty</span>
     </a>
 
-    <!-- Right side hidden when logoOnly -->
     <div class="nav-right" *ngIf="!logoOnly()">
       <div class="nav-items">
         <ul class="links" aria-label="Main">
@@ -79,7 +23,7 @@
       </div>
 
       <div class="nav-cta">
-        <a class="btn cta" routerLink="/buy">Buy Now</a>
+        <a class="btn cta" routerLink="/buy">Connect</a>
       </div>
 
       <div class="nav-burger">
@@ -105,7 +49,7 @@
         <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
       </ul>
       <div class="m-cta">
-        <a class="btn cta block" routerLink="/buy">Buy Now</a>
+        <a class="btn cta block" routerLink="/buy">Connect</a>
       </div>
     </div>
   </div>

@@ -1,0 +1,31 @@
+/* src/styles/_variables.scss */
+
+/* brand + neutrals */
+$brand:        #6c49ff;       /* purple accent (FAB, active) */
+$brand-600:    #5a3ff0;
+$brand-700:    #4a35d9;
+
+$ink:          #0f172a;       /* headings */
+$ink-600:      #1f2937;       /* labels */
+$muted:        #6b7280;       /* secondary text */
+$muted-2:      #94a3b8;       /* placeholder */
+$line:         #e5e7eb;       /* borders / dividers */
+$bg:           #f8fafc;       /* sidebar background */
+$card:         #ffffff;       /* card surface */
+
+$success:      #22c55e;       /* online dot */
+$danger:       #ef4444;       /* unread bubble / destructive */
+
+/* sizing */
+$radius-sm:    10px;
+$radius-md:    14px;
+$radius-pill:  999px;
+
+$shadow-sm:    0 2px 10px rgba(2, 6, 23, .04);
+$shadow-md:    0 8px 26px rgba(2, 6, 23, .08);
+
+/* layout */
+$sidebar-w:    420px;         /* main chat sidebar width */
+$rail-w:       82px;          /* nav rail (sidebar-nv) width */
+$gutter:       16px;
+

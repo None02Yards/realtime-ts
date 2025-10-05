@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Alice",
+    "avatar": "assets/avatars/avatar-1.jpg",
+    "lastMessage": "Hey! How’s it going?",
+    "time": "2:15 PM",
+    "unread": 4,
+    "isRecent": true,
+    "isPinned": true
+  },
+  {
+    "id": 2,
+    "name": "Bob",
+    "avatar": "assets/avatars/avatar-2.jpg",
+    "lastMessage": "Let’s catch up later!",
+    "time": "1:43 PM",
+    "unread": 0,
+    "isRecent": true,
+    "isPinned": true
+  },
+  {
+    "id": 3,
+    "name": "Charlie",
+    "avatar": "assets/avatars/avatar-3.jpg",
+    "lastMessage": "Got your message 👍",
+    "time": "12:05 PM",
+    "unread": 4,
+    "isRecent": true,
+    "isPinned": true
+  },
+  {
+    "id": 4,
+    "name": "Lena",
+    "avatar": "assets/avatars/avatar-4.jpg",
+    "lastMessage": "Heading out now.",
+    "time": "11:50 AM",
+    "unread": 0,
+    "isRecent": false,
+    "isPinned": false
+  },
+  {
+    "id": 5,
+    "name": "Dan",
+    "avatar": "assets/avatars/avatar-5.jpg",
+    "lastMessage": "See you at 5!",
+    "time": "10:32 AM",
+    "unread": 1,
+    "isRecent": false,
+    "isPinned": false
+  },
+  {
+    "id": 6,
+    "name": "Jessie",
+    "avatar": "assets/avatars/avatar-6.jpg",
+    "lastMessage": "Thanks again ❤️",
+    "time": "Yesterday",
+    "unread": 0,
+    "isRecent": false,
+    "isPinned": false
+  },
+  {
+    "id": 7,
+    "name": "Omar",
+    "avatar": "assets/avatars/avatar-7.jpg",
+    "lastMessage": "Let’s sync tomorrow.",
+    "time": "Yesterday",
+    "unread": 3,
+    "isRecent": false,
+    "isPinned": false
+  },
+  {
+    "id": 8,
+    "name": "Mei",
+    "avatar": "assets/avatars/avatar-8.jpg",
+    "lastMessage": "Cool 😎",
+    "time": "Yesterday",
+    "unread": 0,
+    "isRecent": false,
+    "isPinned": false
+  },
+  {
+    "id": 9,
+    "name": "Rami",
+    "avatar": "assets/avatars/avatar-9.jpg",
+    "lastMessage": "Let’s go!",
+    "time": "2 days ago",
+    "unread": 0,
+    "isRecent": false,
+    "isPinned": false
+  },
+  {
+    "id": 10,
+    "name": "Ali",
+    "avatar": "assets/avatars/avatar-10.jpg",
+    "lastMessage": "I’m working on it",
+    "time": "2 days ago",
+    "unread": 1,
+    "isRecent": false,
+    "isPinned": false
+  },
+  {
+    "id": 11,
+    "name": "Amfr_boys_Group",
+    "avatar": "assets/avatars/avatar-11.jpg",
+    "lastMessage": "Photo",
+    "time": "Sunday",
+    "unread": 5,
+    "isRecent": false,
+    "isPinned": false
+  },
+  {
+    "id": 12,
+    "name": "Carla",
+    "avatar": "assets/avatars/avatar-12.jpg",
+    "lastMessage": "Gotcha",
+    "time": "Sunday",
+    "unread": 0,
+    "isRecent": false,
+    "isPinned": false
+  }
+]
