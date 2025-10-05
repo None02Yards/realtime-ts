@@ -1,0 +1,167 @@
+// // :root {
+// //   --rail-w: 84px;
+// //   --rail-gap: 22px;
+// //   --rail-bg: #1530de;
+// //   --rail-br: #174c9c;
+// //   --rail-fg: #0f172a; /* slate-900 */
+// //   --rail-muted: #334155; /* slate-700 */
+// //   --rail-accent: #7c3aed; /* purple-600/700 */
+// // }
+
+// .nv-rail {
+//   position: sticky;
+//   top: 0;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   width: var(--rail-w);
+//   height: 100dvh;
+//   background: var(--rail-bg);
+//   border-right: 1px solid var(--rail-br);
+//   padding-top: 14px;
+//   gap: var(--rail-gap);
+//   user-select: none;
+// }
+
+// .btn-rail {
+//   width: 52px;
+//   height: 52px;
+//   border-radius: 16px;
+//   display: grid;
+//   place-items: center;
+//   color: var(--rail-fg);
+//   background: transparent;
+//   border: none;
+//   cursor: pointer;
+//   transition: background .15s ease, color .15s ease, transform .1s ease;
+//   outline: none;
+
+//   .i { width: 24px; height: 24px; display: block; }
+
+//   &:hover { background: #f3f4f6; } /* slate-100 */
+//   &.is-active { color: var(--rail-accent); }
+// }
+
+// /* Brand selected (purple rounded square) */
+// .btn-rail.active {
+//   background: var(--rail-accent);
+//   color: #fff;
+//   box-shadow: 0 8px 18px rgba(124,58,237,.25);
+// }
+
+// /* push-down space above theme + avatar */
+// .spacer { flex: 1; }
+
+// .me {
+//   width: 48px;
+//   height: 48px;
+//   margin-bottom: 12px;
+
+//   img {
+//     width: 100%;
+//     height: 100%;
+//     border-radius: 999px;
+//     object-fit: cover;
+//     border: 2px solid #ef4444; /* red ring like screenshot */
+//   }
+// }
+
+/* optional dark theme */
+// :root.dark .nv-rail {
+//   --rail-bg: #0b0f1a;
+//   --rail-br: #1f2937;
+//   --rail-fg: #e5e7eb;
+//   --rail-muted: #a1a1aa;
+// }
+// :root.dark .btn-rail:hover { background: #111827; }
+
+@use 'variables' as v;
+@use 'mixins' as m;
+
+/* Navigation rail */
+.nv-rail {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Prefer runtime CSS var, fall back to SCSS token */
+  width: var(--rail-w, #{v.$rail-w});
+  height: 100dvh;
+
+  background: var(--rail-bg);
+  border-right: 1px solid var(--rail-br);
+  padding-top: 14px;
+  gap: var(--rail-gap);
+  user-select: none;
+}
+
+/* Round icon buttons (rail) */
+.btn-rail {
+  @include m.size(52px);
+  @include m.rounded(16px);
+  display: grid;
+  place-items: center;
+  color: var(--rail-fg);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  @include m.transition(background .15s ease, color .15s ease, transform .1s ease);
+
+  .i { @include m.size(24px); display: block; }
+
+  &:hover { background: #f3f4f6; } /* slate-100 */
+  &.is-active { color: var(--rail-accent); }
+}
+
+/* Alternate solid rail (if you use it elsewhere) */
+.rail {
+  width: v.$rail-w;
+  height: 100dvh;
+  background: #fff;
+  border-right: 1px solid v.$line;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  align-content: start;
+  padding: 14px 0;
+}
+
+/* Button style for the solid rail */
+.rail-btn {
+  @include m.size(48px);
+  margin: 10px auto;
+  display: grid; place-items: center;
+  border: 1px solid rgba(15,23,42,.06);
+  background: v.$card;
+  @include m.rounded(14px);
+  box-shadow: v.$shadow-sm;
+  color: v.$ink-600;
+  cursor: pointer;
+  @extend %animation-effect;
+
+  &:hover { transform: translateY(-1px); box-shadow: v.$shadow-md; }
+  &.is-active { color: #fff; background: v.$brand; border-color: transparent; }
+}
+
+.spacer { flex: 1; }
+
+.me {
+  @include m.size(48px);
+  margin-bottom: 12px;
+  @include m.rounded(999px);
+  overflow: hidden;
+  box-shadow: v.$shadow-sm;
+
+  img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    border: 2px solid #ef4444; /* status ring if you want */
+    border-radius: 999px;
+  }
+}
+
+.btn-rail.active {
+  background: var(--rail-accent);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(124,58,237,.25);
+}

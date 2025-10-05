@@ -41,6 +41,7 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/chat/chat-page/chat-page.component')
         .then(m => m.ChatPageComponent),
+         data: { nav: 'none' },
   },
   { path: '**', redirectTo: '' },
 ];

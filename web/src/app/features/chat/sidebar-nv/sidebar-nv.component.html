@@ -1,0 +1,37 @@
+<nav class="nv-rail">
+  <a class="btn-rail active" [routerLink]="['/chat']" aria-label="Chats">
+    <svg viewBox="0 0 24 24" class="i">
+      <path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2
+               2 0 0 0-2-2zM6 9h8M6 13h5" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+
+<ng-container *ngFor="let it of items">
+  <a class="btn-rail"
+     [routerLink]="it.path"
+     routerLinkActive="is-active"
+     [attr.aria-label]="it.title">
+    <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <g [innerHTML]="icon(it.key)"></g>
+    </svg>
+  </a>
+</ng-container>
+
+  <div class="spacer"></div>
+
+  <!-- theme toggle -->
+  <button class="btn-rail" (click)="toggleTheme()" aria-label="Toggle theme">
+    <svg viewBox="0 0 24 24" class="i">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3
+               7 7 0 0 0 21 12.79Z" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <!-- avatar -->
+  <div class="me">
+    <img [src]="avatarUrl" alt="Your avatar" />
+  </div>
+</nav>

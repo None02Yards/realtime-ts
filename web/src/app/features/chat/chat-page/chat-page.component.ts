@@ -3,15 +3,18 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { SidebarNvComponent } from '../sidebar-nv/sidebar-nv.component';
 import { AuthService } from '../../../core/services/auth.service';
 import { SocketService } from '../../../core/services/socket.service';
 
 @Component({
   selector: 'app-chat-page',
   standalone: true,
-  imports: [CommonModule, SidebarComponent],
+  imports: [CommonModule, SidebarComponent, SidebarNvComponent],
   template: `
     <div class="layout">
+      <app-sidebar-nv></app-sidebar-nv>
+
       <app-sidebar></app-sidebar>
 
       <div class="main">

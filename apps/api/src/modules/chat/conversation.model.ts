@@ -11,6 +11,7 @@ export interface IConversation {
   updatedAt: Date;
 }
 
+
 const ConversationSchema = new Schema<IConversation>(
   {
     isGroup: { type: Boolean, default: false },

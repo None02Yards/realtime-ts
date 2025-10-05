@@ -1,1 +1,70 @@
-<p>sidebar works!</p>
+<div class="sidebar p-3 d-flex flex-column h-100">
+  <!-- Header -->
+  <div class="sidebar-header mb-3">
+    <!-- Title + Actions -->
+    <div class="d-flex justify-content-between align-items-center">
+      <h3 class="mb-0">Chats</h3>
+      <div class="d-flex gap-2">
+        <button class="btn btn-sm btn-outline-primary add-chat">+</button>
+        <button class="btn btn-sm btn-outline-secondary menu-btn">⋯</button>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="searchdiv">
+      <div class="mt-3">
+        <input type="text" class="form-control form-control-sm" placeholder="Search for contacts or messages" />
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Section Title -->
+  <div class=" recent-section">
+    <div class="section-title fw-semibold text-muted small mb-2">Recent Chats</div>
+  
+    <!-- Recent Chats (horizontal scroll) -->
+    <div class="recent-chats d-flex gap-3 overflow-auto mb-3">
+      <div *ngFor="let chat of recentChats" class="recent-item text-center">
+        <div class="img-div">
+        <img [src]="chat.avatar" [alt]="chat.name" class="rounded-circle"  />
+       </div>
+        <p class="mb-0 small">{{ chat.name }}</p>
+      </div>
+    </div>
+  
+  </div>
+
+
+  <!-- Divider -->
+  <hr class="my-2" style="width: 200px;" />
+
+  <!-- All Chats -->
+  <div class="chat-list flex-grow-1 overflow-auto">
+    <div
+      *ngFor="let chat of allChats"
+      class="chat-item d-flex justify-content-between align-items-start p-2 border-bottom"
+    >
+      <img
+        [src]="chat.avatar"
+        alt=""
+        class="rounded-circle me-2"
+        width="48"
+        height="48"
+      />
+      <div class="flex-grow-1">
+        <h6 class="mb-0">{{ chat.name }}</h6>
+        <p class="text-muted small mb-0">{{ chat.lastMessage }}</p>
+      </div>
+      <div class="chat-meta text-end ms-2">
+        <span class="small text-muted d-block">{{ chat.time }}</span>
+        <span
+          *ngIf="chat.unread > 0"
+          class="badge bg-primary rounded-pill mt-1"
+        >
+          {{ chat.unread }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
